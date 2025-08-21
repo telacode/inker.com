@@ -179,22 +179,22 @@
         <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-zinc-300 subheadline-font">World-class tattooers building the future of ink.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             <!-- Artist 1 - Using constructed raw GitHub URL, object-position set to top -->
-            <div class="p-6 rounded-xl shadow-xl border border-zinc-800 artist-card-bg">
+            <div class="p-4 rounded-xl shadow-xl border border-zinc-800 artist-card-bg">
                 <img src="https://raw.githubusercontent.com/telacode/inker.com/555c2ee985567fb06f943e90364dcc5170c807aa/artist1.png" alt="Artist 1" class="w-40 h-40 rounded-xl mx-auto mb-4 object-cover object-top border-4 border-zinc-700">
-                <h3 class="text-xl font-bold text-white mb-1">Artist Name 1</h3>
-                <p class="text-zinc-400">@ArtistIG1</p>
+                <h3 class="text-xl font-bold text-white mb-1">Mr. Ink</h3>
+                <p class="text-zinc-400">@MrInk</p>
             </div>
             <!-- Artist 2 - Using constructed raw GitHub URL, object-position set to top -->
-            <div class="p-6 rounded-xl shadow-xl border border-zinc-800 artist-card-bg">
+            <div class="p-4 rounded-xl shadow-xl border border-zinc-800 artist-card-bg">
                 <img src="https://raw.githubusercontent.com/telacode/inker.com/555c2ee985567fb06f943e90364dcc5170c807aa/artist2.png" alt="Artist 2" class="w-40 h-40 rounded-xl mx-auto mb-4 object-cover object-top border-4 border-zinc-700">
-                <h3 class="text-xl font-bold text-white mb-1">Artist Name 2</h3>
-                <p class="text-zinc-400">@ArtistIG2</p>
+                <h3 class="text-xl font-bold text-white mb-1">Inkman</h3>
+                <p class="text-zinc-400">@AInkman</p>
             </div>
             <!-- Artist 3 - Using constructed raw GitHub URL, object-position set to top -->
-            <div class="p-6 rounded-xl shadow-xl border border-zinc-800 artist-card-bg">
+            <div class="p-4 rounded-xl shadow-xl border border-zinc-800 artist-card-bg">
                 <img src="https://raw.githubusercontent.com/telacode/inker.com/555c2ee985567fb06f943e90364dcc5170c807aa/artist3.png" alt="Artist 3" class="w-40 h-40 rounded-xl mx-auto mb-4 object-cover object-top border-4 border-zinc-700">
-                <h3 class="text-xl font-bold text-white mb-1">Artist Name 3</h3>
-                <p class="text-zinc-400">@ArtistIG3</p>
+                <h3 class="text-xl font-bold text-white mb-1">MissInk</h3>
+                <p class="text-zinc-400">@Missink</p>
             </div>
         </div>
     </section>
@@ -216,8 +216,8 @@
 
             <!-- CTA Form 2 -->
             <form class="flex flex-col md:flex-row gap-5 justify-center items-center px-4">
-                <input type="text" placeholder="Your Name" class="w-full md:w-80" required>
-                <input type="email" placeholder="Your Email" class="w-full md:w-80" required>
+                <input type="text" placeholder="Your Name" class="w-full md:w-56" required>
+                <input type="email" placeholder="Your Email" class="w-full md:w-56" required>
                 <button type="submit" class="btn">Join the Waitlist</button>
             </form>
         </div>
@@ -230,13 +230,14 @@
     <script>
         // Countdown functionality
         function updateCountdown() {
-            // Set the launch date (e.g., January 1, 2026)
-            const launchDate = new Date('January 1, 2026 00:00:00').getTime();
+            const now = new Date();
+            // Set launchDate to 200 days from 'now'
+            const launchDate = new Date(now.getTime() + (200 * 24 * 60 * 60 * 1000));
 
             // Update the countdown every 1 second
             const x = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = launchDate - now;
+                const currentNow = new Date().getTime();
+                const distance = launchDate.getTime() - currentNow;
 
                 // Time calculations for days, hours, minutes and seconds
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));

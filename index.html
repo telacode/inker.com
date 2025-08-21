@@ -46,7 +46,6 @@
         /* Input field styling */
         input[type="text"],
         input[type="email"] {
-            /* Adjusted height (py-4) and width (md:w-56) */
             background-color: #262626; /* Adjusted to a slightly lighter zinc for better visibility if needed */
             color: #ffffff;
             border: 1px solid #555555;
@@ -66,7 +65,7 @@
             width: 70%;
             max-width: 700px;
             background-color: #333333; /* Darker gray for subtlety */
-            margin: 0.5rem auto; /* Further reduced top/bottom margin */
+            margin: 0.125rem auto; /* Further reduced top/bottom margin */
             border-radius: 0.5px;
         }
         /* Headings - using Figtree with heavy weight */
@@ -119,22 +118,22 @@
 <body class="antialiased">
 
     <!-- Header / Hero Section -->
-    <section class="flex items-center justify-center text-center px-4 py-12 md:py-8">
+    <section class="flex items-center justify-center text-center px-4 py-6 md:py-4">
         <div class="max-w-4xl mx-auto">
             <!-- Inker Logo - Re-added and using constructed raw GitHub URL -->
-            <img src="https://raw.githubusercontent.com/telacode/inker.com/4a9d850601d44d58d7a074d24194d3ee61e21a56/logo.png" alt="Inker App Logo" class="mx-auto mb-8 w-52 md:w-72 rounded-xl shadow-2xl">
+            <img src="https://raw.githubusercontent.com/telacode/inker.com/4a9d850601d44d58d7a074d24194d3ee61e21a56/logo.png" alt="Inker App Logo" class="mx-auto mb-6 w-52 md:w-72 rounded-xl shadow-2xl">
 
             <!-- Headline - adjusted max-w and text sizes for two lines -->
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-6xl leading-tight mb-4 text-white max-w-3xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-6xl leading-tight mb-3 text-white max-w-3xl mx-auto">
                 Be the <span class="text-accent-red">First</span> to Book the World’s Best Tattoo Artists.
             </h1>
             <!-- Subheadline -->
-            <p class="text-lg md:text-2xl mb-10 max-w-3xl mx-auto text-zinc-300 subheadline-font">
+            <p class="text-lg md:text-2xl mb-6 max-w-3xl mx-auto text-zinc-300 subheadline-font">
                 Inker is the first platform that connects elite tattoo artists with clients — complete with booking, exclusive merch, and more. Launching soon.
             </p>
 
             <!-- CTA Form 1 -->
-            <form class="flex flex-col md:flex-row gap-4 justify-center items-center px-4">
+            <form class="flex flex-col md:flex-row gap-2 justify-center items-center px-4">
                 <input type="text" placeholder="Your Name" class="w-full md:w-56" required>
                 <input type="email" placeholder="Your Email" class="w-full md:w-56" required>
                 <button type="submit" class="btn">Join the Waitlist</button>
@@ -146,32 +145,32 @@
     <div class="section-separator"></div>
 
     <!-- Section 2 — Why Join -->
-    <section class="py-12 px-4 text-center bg-zinc-900 bg-opacity-80 rounded-2xl mx-4 md:mx-auto max-w-6xl shadow-2xl border border-zinc-800">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl mb-10 text-white">Why Get on the List?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <section class="py-6 px-4 text-center bg-zinc-900 bg-opacity-80 rounded-2xl mx-4 md:mx-auto max-w-6xl shadow-2xl border border-zinc-800">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl mb-6 text-white">Why Get on the List?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <!-- Benefit 1: Early Access -->
-            <div class="p-6 bg-zinc-800 rounded-xl shadow-xl border border-zinc-700 flex flex-col items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-accent-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <div class="p-5 bg-zinc-800 rounded-xl shadow-xl border border-zinc-700 flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 mb-3 text-accent-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <h3 class="text-2xl font-bold mb-3 text-accent-red">Early Access</h3>
-                <p class="text-lg text-zinc-300 subheadline-font">Be the first to book with top artists as soon as we launch.</p>
+                <h3 class="text-xl font-bold mb-2 text-accent-red">Early Access</h3>
+                <p class="text-base text-zinc-300 subheadline-font">Be the first to book with top artists as soon as we launch.</p>
             </div>
             <!-- Benefit 2: Exclusive Drops -->
-            <div class="p-6 bg-zinc-800 rounded-xl shadow-xl border border-zinc-700 flex flex-col items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-accent-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <div class="p-5 bg-zinc-800 rounded-xl shadow-xl border border-zinc-700 flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 mb-3 text-accent-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <h3 class="text-2xl font-bold mb-3 text-accent-red">Exclusive Drops</h3>
-                <p class="text-lg text-zinc-300 subheadline-font">Access limited-run artist merch before anyone else.</p>
+                <h3 class="text-xl font-bold mb-2 text-accent-red">Exclusive Drops</h3>
+                <p class="text-base text-zinc-300 subheadline-font">Access limited-run artist merch before anyone else.</p>
             </div>
             <!-- Benefit 3: VIP Giveaways -->
-            <div class="p-6 bg-zinc-800 rounded-xl shadow-xl border border-zinc-700 flex flex-col items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-accent-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <div class="p-5 bg-zinc-800 rounded-xl shadow-xl border border-zinc-700 flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 mb-3 text-accent-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.329 1.14l1.519 4.674c.3.921-.755 1.688-1.539 1.14l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.784.548-1.838-.219-1.539-1.14l1.519-4.674a1 1 0 00-.329-1.14l-3.976-2.888c-.783-.57-.381-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z" />
                 </svg>
-                <h3 class="text-2xl font-bold mb-3 text-accent-red">VIP Giveaways</h3>
-                <p class="text-lg text-zinc-300 subheadline-font">Every sign-up is entered to win free merch and tattoo sessions.</p>
+                <h3 class="text-xl font-bold mb-2 text-accent-red">VIP Giveaways</h3>
+                <p class="text-base text-zinc-300 subheadline-font">Every sign-up is entered to win free merch and tattoo sessions.</p>
             </div>
         </div>
     </section>
@@ -180,32 +179,32 @@
     <div class="section-separator"></div>
 
     <!-- Section 3 — Ambassadors (Social Proof) -->
-    <section class="py-12 px-4 text-center">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl mb-8 text-white">Meet Our Founding Artists</h2>
-        <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-zinc-300 subheadline-font">World-class tattooers building the future of ink.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <section class="py-6 px-4 text-center">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl mb-6 text-white">Meet Our Founding Artists</h2>
+        <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-zinc-300 subheadline-font">World-class tattooers building the future of ink.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             <!-- Artist 1 - Using constructed raw GitHub URL, object-position set to top -->
             <div class="p-4 rounded-xl shadow-xl border border-zinc-800 artist-card-bg">
                 <div class="artist-card-inner">
                     <img src="https://raw.githubusercontent.com/telacode/inker.com/555c2ee985567fb06f943e90364dcc5170c807aa/artist1.png" alt="Artist 1" class="w-40 h-40 rounded-xl mx-auto mb-4 object-cover object-top border-4 border-zinc-700">
-                    <h3 class="text-xl font-bold text-white mb-1">JohnnyInks</h3>
-                    <p class="text-zinc-400">@Johnnyinks</p>
+                    <h3 class="text-xl font-bold text-white mb-1">Artist Name 1</h3>
+                    <p class="text-zinc-400">@ArtistIG1</p>
                 </div>
             </div>
             <!-- Artist 2 - Using constructed raw GitHub URL, object-position set to top -->
             <div class="p-4 rounded-xl shadow-xl border border-zinc-800 artist-card-bg">
                 <div class="artist-card-inner">
                     <img src="https://raw.githubusercontent.com/telacode/inker.com/555c2ee985567fb06f943e90364dcc5170c807aa/artist2.png" alt="Artist 2" class="w-40 h-40 rounded-xl mx-auto mb-4 object-cover object-top border-4 border-zinc-700">
-                    <h3 class="text-xl font-bold text-white mb-1">Mrink</h3>
-                    <p class="text-zinc-400">@MrInk</p>
+                    <h3 class="text-xl font-bold text-white mb-1">Artist Name 2</h3>
+                    <p class="text-zinc-400">@ArtistIG2</p>
                 </div>
             </div>
             <!-- Artist 3 - Using constructed raw GitHub URL, object-position set to top -->
             <div class="p-4 rounded-xl shadow-xl border border-zinc-800 artist-card-bg">
                 <div class="artist-card-inner">
                     <img src="https://raw.githubusercontent.com/telacode/inker.com/555c2ee985567fb06f943e90364dcc5170c807aa/artist3.png" alt="Artist 3" class="w-40 h-40 rounded-xl mx-auto mb-4 object-cover object-top border-4 border-zinc-700">
-                    <h3 class="text-xl font-bold text-white mb-1">MissInk</h3>
-                    <p class="text-zinc-400">@MissInk</p>
+                    <h3 class="text-xl font-bold text-white mb-1">Artist Name 3</h3>
+                    <p class="text-zinc-400">@ArtistIG3</p>
                 </div>
             </div>
         </div>
@@ -215,7 +214,7 @@
     <div class="section-separator"></div>
 
     <!-- Section 4 — Countdown / Closing CTA -->
-    <section class="py-20 px-4 text-center">
+    <section class="py-12 px-4 text-center">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl sm:text-5xl md:text-6xl leading-tight mb-10 text-white">
                 Inker launches in early <span class="text-accent-red">2026</span>. Don’t miss your spot.

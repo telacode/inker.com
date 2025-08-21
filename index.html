@@ -99,8 +99,8 @@
     <!-- Header / Hero Section -->
     <section class="flex items-center justify-center text-center px-4 py-12 md:py-8">
         <div class="max-w-4xl mx-auto">
-            <!-- Inker Logo - Updated src to contentFetchId -->
-            <img src="Inker-Logo.png-a30ded64-edae-4c2c-aca3-306161909ec9" alt="Inker App Logo" class="mx-auto mb-8 w-52 md:w-72 rounded-xl shadow-2xl">
+            <!-- Inker Logo - Updated src to simple filename -->
+            <img src="Inker-Logo.png" alt="Inker App Logo" class="mx-auto mb-8 w-52 md:w-72 rounded-xl shadow-2xl">
 
             <!-- Headline - adjusted max-w and text sizes for two lines -->
             <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-6xl leading-tight mb-4 text-white max-w-3xl mx-auto">
@@ -157,96 +157,4 @@
     <!-- Section Separator -->
     <div class="section-separator"></div>
 
-    <!-- Section 3 — Ambassadors (Social Proof) -->
-    <section class="py-12 px-4 text-center">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl mb-8 text-white">Meet Our Founding Artists</h2>
-        <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-zinc-300 subheadline-font">World-class tattooers building the future of ink.</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            <!-- Artist 1 - Updated src to contentFetchId -->
-            <div class="bg-zinc-900 p-6 rounded-xl shadow-xl border border-zinc-800">
-                <img src="artist1.jpg-b695e612-8122-42ea-97f4-4a5e47320287" alt="Artist 1" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover border-4 border-zinc-700">
-                <h3 class="text-xl font-bold text-white mb-1">Artist Name 1</h3>
-                <p class="text-zinc-400">@ArtistIG1</p>
-            </div>
-            <!-- Artist 2 - Updated src to contentFetchId -->
-            <div class="bg-zinc-900 p-6 rounded-xl shadow-xl border border-zinc-800">
-                <img src="artist2.jpg-b1eda02e-a200-46f4-9ded-e591e48be58f" alt="Artist 2" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover border-4 border-zinc-700">
-                <h3 class="text-xl font-bold text-white mb-1">Artist Name 2</h3>
-                <p class="text-zinc-400">@ArtistIG2</p>
-            </div>
-            <!-- Artist 3 - Updated src to contentFetchId -->
-            <div class="bg-zinc-900 p-6 rounded-xl shadow-xl border border-zinc-800">
-                <img src="artist3.jpg-b99c015d-3aa6-48c7-8fd6-26c8791b7b81" alt="Artist 3" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover border-4 border-zinc-700">
-                <h3 class="text-xl font-bold text-white mb-1">Artist Name 3</h3>
-                <p class="text-zinc-400">@ArtistIG3</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Separator -->
-    <div class="section-separator"></div>
-
-    <!-- Section 4 — Countdown / Closing CTA -->
-    <section class="py-20 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl sm:text-5xl md:text-6xl leading-tight mb-10 text-white">
-                Inker launches in early <span class="text-accent-red">2026</span>. Don’t miss your spot.
-            </h1>
-
-            <!-- Countdown Timer -->
-            <div class="text-5xl md:text-7xl font-extrabold mb-16 text-accent-red tracking-wide">
-                <span id="countdown-days">00</span>D : <span id="countdown-hours">00</span>H : <span id="countdown-minutes">00</span>M : <span id="countdown-seconds">00</span>S
-            </div>
-
-            <!-- CTA Form 2 -->
-            <form class="flex flex-col md:flex-row gap-5 justify-center items-center px-4">
-                <input type="text" placeholder="Your Name" class="w-full md:w-80" required>
-                <input type="email" placeholder="Your Email" class="w-full md:w-80" required>
-                <button type="submit" class="btn">Join the Waitlist</button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="py-10 text-center text-zinc-500 text-sm">
-        &copy; 2025 Inker App. All rights reserved.
-    </footer>
-
-    <script>
-        // Countdown functionality
-        function updateCountdown() {
-            // Set the launch date (e.g., January 1, 2026)
-            const launchDate = new Date('January 1, 2026 00:00:00').getTime();
-
-            // Update the countdown every 1 second
-            const x = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = launchDate - now;
-
-                // Time calculations for days, hours, minutes and seconds
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                // Display the result in the corresponding elements, ensuring two digits
-                document.getElementById("countdown-days").innerText = String(days).padStart(2, '0');
-                document.getElementById("countdown-hours").innerText = String(hours).padStart(2, '0');
-                document.getElementById("countdown-minutes").innerText = String(minutes).padStart(2, '0');
-                document.getElementById("countdown-seconds").innerText = String(seconds).padStart(2, '0');
-
-                // If the countdown is over, stop the timer and update text
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("countdown-days").innerText = "00";
-                    document.getElementById("countdown-hours").innerText = "00";
-                    document.getElementById("countdown-minutes").innerText = "00";
-                    document.getElementById("countdown-seconds").innerText = "00";
-                }
-            }, 1000);
-        }
-
-        // Call the function when the window loads
-        window.onload = updateCountdown;
-    </script>
-</body>
-</html>
+    <!-- Section 3 — Ambassadors (Social Proof) 

@@ -15,7 +15,7 @@
             color: #e0e0e0; /* Off-white for readability */
             position: relative; /* Needed for pseudo-element positioning */
             min-height: 100vh; /* Ensure body takes full height */
-            background-image: url('https://raw.githubusercontent.com/telacode/inker.com/3fa68a6373d958d4a5784503c4c80fde69647cf4/background.png'); /* Direct background image on body */
+            background-image: url('https://raw.githubusercontent.com/telacode/inker.com/f0076d535e06dc2da056216d50aac621c2de3be2/background.png'); /* Direct background image on body */
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Ensures background covers entire scrollable area */
@@ -117,10 +117,10 @@
                 width: auto; /* md:w-auto equivalent */
             }
         }
-        /* Artist card background - now solid #ff6b6b */
+        /* Artist card background - now solid #a14a45 */
         .artist-card-bg {
-            background-color: #ff6b6b; /* Solid accent red */
-            border-color: #ff6b6b; /* Border color matches */
+            background-color: #a14a45; /* Solid accent red */
+            border-color: #a14a45; /* Border color matches */
         }
         /* Artist card content container to control inner width */
         .artist-card-inner {
@@ -131,28 +131,6 @@
         /* Countdown timer specific styling */
         .countdown-timer {
             color: #f74a4a; /* New color for countdown timer */
-        }
-        /* Gemini API feature specific styles */
-        .gemini-feature-container {
-            background-color: #1a1a1a;
-            border: 1px solid #333333;
-            border-radius: 0.75rem;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        .gemini-output {
-            background-color: #222222;
-            border: 1px solid #444444;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            min-height: 100px;
-            text-align: left;
-            white-space: pre-wrap; /* Preserve whitespace and line breaks */
-            word-wrap: break-word; /* Break long words */
-        }
-        .loading-indicator {
-            color: #ff6b6b;
-            font-weight: 600;
         }
     </style>
 </head>
@@ -214,26 +192,6 @@
                 </svg>
                 <h3 class="text-xl font-bold mb-2 text-accent-red">VIP Giveaways</h3>
                 <p class="text-base text-zinc-300 subheadline-font">Every sign-up is entered to win free merch and tattoo sessions.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Separator -->
-    <div class="section-separator relative z-0"></div>
-
-    <!-- Gemini API Feature: Tattoo Idea Expander -->
-    <section class="relative z-0 py-12 px-4 text-center">
-        <div class="max-w-4xl mx-auto gemini-feature-container">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl mb-8 text-white">✨ Expand Your Tattoo Idea ✨</h2>
-            <p class="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-zinc-300 subheadline-font">
-                Got a basic concept? Let our AI help you envision a more detailed and creative tattoo design!
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-8">
-                <textarea id="tattooIdeaInput" placeholder="e.g., 'dragon', 'rose and dagger', 'galaxy sleeve'" class="w-full md:w-3/4 h-32 rounded-lg" rows="4"></textarea>
-                <button id="generateTattooIdeaBtn" class="btn w-full md:w-auto">Generate Idea</button>
-            </div>
-            <div id="tattooIdeaOutput" class="gemini-output text-zinc-300">
-                Your expanded tattoo idea will appear here...
             </div>
         </div>
     </section>
@@ -339,58 +297,6 @@
 
         // Call the function when the window loads
         window.onload = updateCountdown;
-
-        // Gemini API Integration for Tattoo Idea Expander
-        document.addEventListener('DOMContentLoaded', () => {
-            const generateTattooIdeaBtn = document.getElementById('generateTattooIdeaBtn');
-            const tattooIdeaInput = document.getElementById('tattooIdeaInput');
-            const tattooIdeaOutput = document.getElementById('tattooIdeaOutput');
-
-            generateTattooIdeaBtn.addEventListener('click', async () => {
-                const userIdea = tattooIdeaInput.value.trim();
-                if (!userIdea) {
-                    tattooIdeaOutput.innerText = "Please enter a tattoo idea!";
-                    return;
-                }
-
-                tattooIdeaOutput.innerHTML = '<span class="loading-indicator">Generating idea...</span>';
-                generateTattooIdeaBtn.disabled = true; // Disable button during generation
-
-                try {
-                    const prompt = `Expand on this tattoo idea, making it more detailed and creative. Suggest elements, style considerations, and placement ideas. Keep the response concise, around 100-150 words: "${userIdea}"`;
-                    let chatHistory = [];
-                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-                    const payload = { contents: chatHistory };
-                    const apiKey = ""; // If you want to use models other than gemini-2.5-flash-preview-05-20 or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(`API error: ${response.status} - ${errorData.error.message || response.statusText}`);
-                    }
-
-                    const result = await response.json();
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        tattooIdeaOutput.innerText = result.candidates[0].content.parts[0].text;
-                    } else {
-                        tattooIdeaOutput.innerText = "Could not generate an idea. Please try again.";
-                    }
-                } catch (error) {
-                    console.error("Error generating tattoo idea:", error);
-                    tattooIdeaOutput.innerText = `Error: ${error.message}. Please try again.`;
-                } finally {
-                    generateTattooIdeaBtn.disabled = false; // Re-enable button
-                }
-            });
-        });
     </script>
 </body>
 </html>

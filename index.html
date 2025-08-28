@@ -91,7 +91,7 @@
             width: 70%;
             max-width: 700px;
             background-color: #333333; /* Darker gray for subtlety */
-            margin: 0.25rem auto; /* Reduced top/bottom margin further */
+            margin: 0.5rem auto; /* Reduced top/bottom margin further */
             border-radius: 0.5px;
         }
         /* Headings - using Figtree with heavy weight */
@@ -130,7 +130,7 @@
         }
         /* Artist card background - now solid black */
         .artist-card-bg {
-            background-color: #000000; /* Solid black */
+            background-color: rgba(0, 0, 0, 0.3); /* 30% transparent black */
             border: none; /* Removed border entirely */
             padding: 0.5rem; /* Increased padding to make background more visible */
         }
@@ -148,6 +148,12 @@
         /* Countdown timer specific styling */
         .countdown-timer {
             color: #f74a4a; /* New color for countdown timer */
+        }
+
+        /* Why Join section background - changed to solid black with 40% opacity */
+        .why-join-bg {
+            background-color: rgba(0, 0, 0, 0.4); /* 40% black opacity */
+            border: none; /* Removed border */
         }
     </style>
 </head>
@@ -187,8 +193,8 @@
     <div class="section-separator relative z-0"></div>
 
     <!-- Section 2 — Why Join -->
-    <section class="relative z-0 py-6 px-4 text-center bg-zinc-900 bg-opacity-80 rounded-2xl mx-4 md:mx-auto max-w-6xl shadow-2xl border border-zinc-800">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl mb-4 text-white">Why Get on the List?</h2>
+    <section class="relative z-0 py-6 px-4 text-center rounded-2xl mx-4 md:mx-auto max-w-6xl shadow-2xl why-join-bg">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl mb-4 text-white">Get on the list for:</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <!-- Benefit 1: Early Access -->
             <div class="p-4 bg-zinc-800 rounded-xl shadow-xl border border-zinc-700 flex flex-col items-center">
@@ -260,7 +266,7 @@
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl sm:text-5xl md:text-6xl leading-tight mb-8 text-white">
                 Inker launches in early <span class="text-accent-red-text">2026</span>. Don’t miss your spot.
-            </h1>
+            <h1>
 
             <!-- Countdown Timer -->
             <div class="text-5xl md:text-7xl font-extrabold mb-12 tracking-wide countdown-timer">

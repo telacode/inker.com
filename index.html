@@ -11,13 +11,28 @@
     <style>
         body {
             font-family: 'Figtree', sans-serif; /* Changed to Figtree */
-            background-color: #121212; /* Very dark charcoal/black */
-            background-image: url('https://placehold.co/1920x1080/121212/1a1a1a'); /* Subtle dark texture or solid color for cleaner look */
+            background-color: #121212; /* Fallback background color */
+            color: #e0e0e0; /* Off-white for readability */
+            position: relative; /* Needed for pseudo-element positioning */
+            min-height: 100vh; /* Ensure body takes full height */
+            background-image: url('https://raw.githubusercontent.com/telacode/inker.com/3fa68a6373d958d4a5784503c4c80fde69647cf4/background.png'); /* Direct background image on body */
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Optional: for a fixed background effect */
-            color: #e0e0e0; /* Off-white for readability */
+            background-attachment: fixed; /* Ensures background covers entire scrollable area */
         }
+
+        /* Dark overlay using a pseudo-element - adjusted opacity for 40% image visibility */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* 60% black overlay for 40% image visibility */
+            z-index: -1; /* Place behind content */
+        }
+
         /* Custom red accent color, changed to #ff6b6b */
         .text-accent-red {
             color: #ff6b6b;
@@ -102,10 +117,10 @@
                 width: auto; /* md:w-auto equivalent */
             }
         }
-        /* Artist card background with more pronounced transparency red */
+        /* Artist card background - now solid #ff6b6b */
         .artist-card-bg {
-            background-color: rgba(255, 107, 107, 0.4); /* New accent color with 40% opacity */
-            border-color: rgba(255, 107, 107, 0.6); /* Slightly more opaque border for contrast */
+            background-color: #ff6b6b; /* Solid accent red */
+            border-color: #ff6b6b; /* Border color matches */
         }
         /* Artist card content container to control inner width */
         .artist-card-inner {
@@ -117,12 +132,36 @@
         .countdown-timer {
             color: #f74a4a; /* New color for countdown timer */
         }
+        /* Gemini API feature specific styles */
+        .gemini-feature-container {
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .gemini-output {
+            background-color: #222222;
+            border: 1px solid #444444;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            min-height: 100px;
+            text-align: left;
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+            word-wrap: break-word; /* Break long words */
+        }
+        .loading-indicator {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="antialiased">
+    <!-- The background image is now set via CSS on the body element -->
+    <!-- The overlay is now handled by the body::before pseudo-element -->
 
     <!-- Header / Hero Section -->
-    <section class="flex items-center justify-center text-center px-4 py-6 md:py-4">
+    <section class="relative z-0 flex items-center justify-center text-center px-4 py-6 md:py-4">
         <div class="max-w-4xl mx-auto">
             <!-- Inker Logo - Re-added and using constructed raw GitHub URL -->
             <img src="https://raw.githubusercontent.com/telacode/inker.com/4a9d850601d44d58d7a074d24194d3ee61e21a56/logo.png" alt="Inker App Logo" class="mx-auto mb-6 w-52 md:w-72 rounded-xl shadow-2xl">
@@ -146,10 +185,10 @@
     </section>
 
     <!-- Section Separator -->
-    <div class="section-separator"></div>
+    <div class="section-separator relative z-0"></div>
 
     <!-- Section 2 — Why Join -->
-    <section class="py-6 px-4 text-center bg-zinc-900 bg-opacity-80 rounded-2xl mx-4 md:mx-auto max-w-6xl shadow-2xl border border-zinc-800">
+    <section class="relative z-0 py-6 px-4 text-center bg-zinc-900 bg-opacity-80 rounded-2xl mx-4 md:mx-auto max-w-6xl shadow-2xl border border-zinc-800">
         <h2 class="text-3xl sm:text-4xl md:text-5xl mb-6 text-white">Why Get on the List?</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <!-- Benefit 1: Early Access -->
@@ -180,10 +219,30 @@
     </section>
 
     <!-- Section Separator -->
-    <div class="section-separator"></div>
+    <div class="section-separator relative z-0"></div>
+
+    <!-- Gemini API Feature: Tattoo Idea Expander -->
+    <section class="relative z-0 py-12 px-4 text-center">
+        <div class="max-w-4xl mx-auto gemini-feature-container">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl mb-8 text-white">✨ Expand Your Tattoo Idea ✨</h2>
+            <p class="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-zinc-300 subheadline-font">
+                Got a basic concept? Let our AI help you envision a more detailed and creative tattoo design!
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-8">
+                <textarea id="tattooIdeaInput" placeholder="e.g., 'dragon', 'rose and dagger', 'galaxy sleeve'" class="w-full md:w-3/4 h-32 rounded-lg" rows="4"></textarea>
+                <button id="generateTattooIdeaBtn" class="btn w-full md:w-auto">Generate Idea</button>
+            </div>
+            <div id="tattooIdeaOutput" class="gemini-output text-zinc-300">
+                Your expanded tattoo idea will appear here...
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Separator -->
+    <div class="section-separator relative z-0"></div>
 
     <!-- Section 3 — Ambassadors (Social Proof) -->
-    <section class="py-6 px-4 text-center">
+    <section class="relative z-0 py-6 px-4 text-center">
         <h2 class="text-3xl sm:text-4xl md:text-5xl mb-6 text-white">Meet Our Founding Artists</h2>
         <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-zinc-300 subheadline-font">World-class tattooers building the future of ink.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -215,10 +274,10 @@
     </section>
 
     <!-- Section Separator -->
-    <div class="section-separator"></div>
+    <div class="section-separator relative z-0"></div>
 
     <!-- Section 4 — Countdown / Closing CTA -->
-    <section class="py-12 px-4 text-center">
+    <section class="relative z-0 py-12 px-4 text-center">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl sm:text-5xl md:text-6xl leading-tight mb-10 text-white">
                 Inker launches in early <span class="text-accent-red">2026</span>. Don’t miss your spot.
@@ -238,7 +297,7 @@
         </div>
     </section>
 
-    <footer class="py-10 text-center text-zinc-500 text-sm">
+    <footer class="relative z-0 py-10 text-center text-zinc-500 text-sm">
         <!-- Smaller Logo at the bottom -->
         <img src="https://raw.githubusercontent.com/telacode/inker.com/4a9d850601d44d58d7a074d24194d3ee61e21a56/logo.png" alt="Inker App Logo" class="mx-auto mb-4 w-24 opacity-70">
         &copy; Inker.com All Rights Reserved 2025
@@ -280,6 +339,58 @@
 
         // Call the function when the window loads
         window.onload = updateCountdown;
+
+        // Gemini API Integration for Tattoo Idea Expander
+        document.addEventListener('DOMContentLoaded', () => {
+            const generateTattooIdeaBtn = document.getElementById('generateTattooIdeaBtn');
+            const tattooIdeaInput = document.getElementById('tattooIdeaInput');
+            const tattooIdeaOutput = document.getElementById('tattooIdeaOutput');
+
+            generateTattooIdeaBtn.addEventListener('click', async () => {
+                const userIdea = tattooIdeaInput.value.trim();
+                if (!userIdea) {
+                    tattooIdeaOutput.innerText = "Please enter a tattoo idea!";
+                    return;
+                }
+
+                tattooIdeaOutput.innerHTML = '<span class="loading-indicator">Generating idea...</span>';
+                generateTattooIdeaBtn.disabled = true; // Disable button during generation
+
+                try {
+                    const prompt = `Expand on this tattoo idea, making it more detailed and creative. Suggest elements, style considerations, and placement ideas. Keep the response concise, around 100-150 words: "${userIdea}"`;
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // If you want to use models other than gemini-2.5-flash-preview-05-20 or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(`API error: ${response.status} - ${errorData.error.message || response.statusText}`);
+                    }
+
+                    const result = await response.json();
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        tattooIdeaOutput.innerText = result.candidates[0].content.parts[0].text;
+                    } else {
+                        tattooIdeaOutput.innerText = "Could not generate an idea. Please try again.";
+                    }
+                } catch (error) {
+                    console.error("Error generating tattoo idea:", error);
+                    tattooIdeaOutput.innerText = `Error: ${error.message}. Please try again.`;
+                } finally {
+                    generateTattooIdeaBtn.disabled = false; // Re-enable button
+                }
+            });
+        });
     </script>
 </body>
 </html>

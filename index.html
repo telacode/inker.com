@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Figtree', sans-serif; /* Changed to Figtree */
-            background-color: #121212; /* Fallback background color */
+            background-color: #000000; /* Solid black background for primary darkness */
             color: #e0e0e0; /* Off-white for readability */
             position: relative; /* Needed for content positioning relative to background */
             min-height: 100vh; /* Ensure body takes full height */
@@ -27,18 +27,10 @@
             height: 100%;
             object-fit: cover; /* Ensures video covers the entire area */
             z-index: -3; /* Place very far back */
+            opacity: 0.4; /* 40% opacity for the video itself to blend with black body */
         }
 
-        /* Dark overlay on top of the background video - adjusted for 70% black opacity */
-        .background-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* 70% black overlay */
-            z-index: -2; /* Between background video and content */
-        }
+        /* Removed .background-overlay as body now handles primary darkness */
 
         /* Custom red accent color for text, changed to #f74a4a */
         .text-accent-red-text {
@@ -130,7 +122,7 @@
         }
         /* Artist card background - now solid black */
         .artist-card-bg {
-            background-color: rgba(0, 0, 0, 0.3); /* 30% transparent black */
+            background-color: #000000; /* Solid black */
             border: none; /* Removed border entirely */
             padding: 0.5rem; /* Increased padding to make background more visible */
         }
@@ -163,7 +155,7 @@
         <source src="https://raw.githubusercontent.com/telacode/inker.com/1f763f0209825e71ceb104e7c914a6945163b12b/backgroundvideo.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <div class="background-overlay"></div>
+    <!-- Removed .background-overlay as body now handles primary darkness -->
 
     <!-- Header / Hero Section -->
     <section class="relative z-0 flex items-center justify-center text-center px-4 py-8 md:py-6">

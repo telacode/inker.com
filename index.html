@@ -29,14 +29,14 @@
             z-index: -3; /* Place very far back */
         }
 
-        /* Dark overlay on top of the background video */
+        /* Dark overlay on top of the background video - adjusted for 70% black opacity */
         .background-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* 60% black overlay on top of the video */
+            background-color: rgba(0, 0, 0, 0.7); /* 70% black overlay */
             z-index: -2; /* Between background video and content */
         }
 
@@ -44,9 +44,9 @@
         .text-accent-red-text {
             color: #ffffff; /* Explicitly set to white */
         }
-        /* Custom red accent color for icons, changed to #d18a8a */
+        /* Custom red accent color for icons, changed to #db6758 */
         .text-accent-red-icon {
-            color: #d18a8a; /* Specific color for icons */
+            color: #db6758; /* Specific color for icons */
         }
         .border-accent-red {
             border-color: #ff6b6b; /* Kept original red for borders if any */
@@ -131,7 +131,7 @@
         /* Artist card background - now solid black with 55% opacity */
         .artist-card-bg {
             background-color: rgba(0, 0, 0, 0.55); /* Solid black with 55% opacity */
-            /* Removed border-color to eliminate the outline */
+            border-color: #1a1a1a; /* Darker gray border to blend with black */
             padding: 0.125rem; /* Reduced vertical padding */
             padding-left: 0.25rem; /* Further reduced horizontal padding */
             padding-right: 0.25rem; /* Further reduced horizontal padding */
@@ -228,7 +228,7 @@
         <p class="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-zinc-300 subheadline-font">World-class tattooers building the future of ink.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 max-w-7xl mx-auto">
             <!-- Artist 1 - Using constructed raw GitHub URL, object-position set to top -->
-            <div class="rounded-xl shadow-xl">
+            <div class="rounded-xl shadow-xl artist-card-bg">
                 <div class="artist-card-inner">
                     <img src="https://raw.githubusercontent.com/telacode/inker.com/555c2ee985567fb06f943e90364dcc5170c807aa/artist1.png" alt="Artist 1" class="w-40 h-40 rounded-xl mx-auto mb-2 object-cover object-top">
                     <h3 class="text-base font-bold text-white mb-1">Mr. Ink</h3>
@@ -236,7 +236,7 @@
                 </div>
             </div>
             <!-- Artist 2 - Using constructed raw GitHub URL, object-position set to top -->
-            <div class="rounded-xl shadow-xl">
+            <div class="rounded-xl shadow-xl artist-card-bg">
                 <div class="artist-card-inner">
                     <img src="https://raw.githubusercontent.com/telacode/inker.com/555c2ee985567fb06f943e90364dcc5170c807aa/artist2.png" alt="Artist 2" class="w-40 h-40 rounded-xl mx-auto mb-2 object-cover object-top">
                     <h3 class="text-base font-bold text-white mb-1">Dr. Ink</h3>
@@ -244,7 +244,7 @@
                 </div>
             </div>
             <!-- Artist 3 - Using constructed raw GitHub URL, object-position set to top -->
-            <div class="rounded-xl shadow-xl">
+            <div class="rounded-xl shadow-xl artist-card-bg">
                 <div class="artist-card-inner">
                     <img src="https://raw.githubusercontent.com/telacode/inker.com/555c2ee985567fb06f943e90364dcc5170c807aa/artist3.png" alt="Artist 3" class="w-40 h-40 rounded-xl mx-auto mb-2 object-cover object-top">
                     <h3 class="text-base font-bold text-white mb-1">Miss Ink</h3>

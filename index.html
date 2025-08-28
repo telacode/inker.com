@@ -18,17 +18,17 @@
             background-attachment: fixed; /* Optional: for a fixed background effect */
             color: #e0e0e0; /* Off-white for readability */
         }
-        /* Custom red accent color, used for non-button accents */
+        /* Custom red accent color, changed to #ff6b6b */
         .text-accent-red {
-            color: #E01E3C; /* A rich, modern red */
+            color: #ff6b6b;
         }
         .border-accent-red {
-            border-color: #E01E3C;
+            border-color: #ff6b6b;
         }
-        /* Button styling for a premium feel - now explicitly using a strong red */
+        /* Button styling for a premium feel - now explicitly using the new accent color */
         .btn {
-            background-color: #FF0000; /* Explicitly set to pure red */
-            color: #ffffff;
+            background-color: #f74a4a; /* Explicitly set to new accent color */
+            color: #ffffff; /* Changed text color to white */
             padding: 0.75rem 2rem; /* Adjusted padding slightly */
             border-radius: 0.5rem;
             font-weight: 600; /* Semi-bold */
@@ -41,7 +41,7 @@
             max-width: 200px; /* max-w-xs on medium/large for better alignment with inputs */
         }
         .btn:hover {
-            background-color: #CC0000; /* Darker red on hover */
+            background-color: #e65c5c; /* Slightly darker/different shade on hover */
         }
         /* Input field styling */
         input[type="text"],
@@ -57,7 +57,7 @@
         }
         input[type="text"]:focus,
         input[type="email"]:focus {
-            border-color: #E01E3C;
+            border-color: #ff6b6b; /* Changed focus border to new accent color */
         }
         /* Section Separator */
         .section-separator {
@@ -102,16 +102,20 @@
                 width: auto; /* md:w-auto equivalent */
             }
         }
-        /* Artist card background with low transparency red */
+        /* Artist card background with more pronounced transparency red */
         .artist-card-bg {
-            background-color: rgba(224, 30, 60, 0.3); /* Accent red with 30% opacity */
-            border-color: rgba(224, 30, 60, 0.5); /* Slightly more opaque border for contrast */
+            background-color: rgba(255, 107, 107, 0.4); /* New accent color with 40% opacity */
+            border-color: rgba(255, 107, 107, 0.6); /* Slightly more opaque border for contrast */
         }
         /* Artist card content container to control inner width */
         .artist-card-inner {
             max-width: 250px; /* Adjust this value to make the content narrower */
             margin: 0 auto; /* Center the content within the card */
             padding: 1rem; /* Adjust padding as needed */
+        }
+        /* Countdown timer specific styling */
+        .countdown-timer {
+            color: #f74a4a; /* New color for countdown timer */
         }
     </style>
 </head>
@@ -129,11 +133,11 @@
             </h1>
             <!-- Subheadline -->
             <p class="text-lg md:text-2xl mb-6 max-w-3xl mx-auto text-zinc-300 subheadline-font">
-                Inker is the first platform that connects elite tattoo artists with clients — complete with booking, exclusive merch, and more. Launching soon.
+                Inker is the first platform that connects elite tattoo artists with clients — complete with booking, exclusive merch, and more.
             </p>
 
             <!-- CTA Form 1 -->
-            <form class="flex flex-col md:flex-row gap-2 justify-center items-center px-4">
+            <form class="flex flex-col md:flex-row gap-4 justify-center items-center px-4">
                 <input type="text" placeholder="Your Name" class="w-full md:w-56" required>
                 <input type="email" placeholder="Your Email" class="w-full md:w-56" required>
                 <button type="submit" class="btn">Join the Waitlist</button>
@@ -221,7 +225,7 @@
             </h1>
 
             <!-- Countdown Timer -->
-            <div class="text-5xl md:text-7xl font-extrabold mb-16 text-accent-red tracking-wide">
+            <div class="text-5xl md:text-7xl font-extrabold mb-16 tracking-wide countdown-timer">
                 <span id="countdown-days">00</span>D : <span id="countdown-hours">00</span>H : <span id="countdown-minutes">00</span>M : <span id="countdown-seconds">00</span>S
             </div>
 
